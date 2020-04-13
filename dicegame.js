@@ -1,6 +1,6 @@
 exports.roll = function(x) {
     if (x < 1 || x > 10)
-        return "You try rolling that many fucking di, asshole.";
+        return "Waaaaaaay to many di.";
 
     let rolls = [];
     let sum = 0;
