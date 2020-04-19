@@ -1,12 +1,10 @@
-const config = require('./config.js');
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 const diceGame = require('./dicegame.js');
 const kanye = require("./kanyequote.js");
+require('dotenv').config();
 
-
-//Make this secret
-const token = config.getDiscordBotToken();
+const token = process.env.TOKEN;
 const PREFIX = "!";
 
 bot.on("ready", () => {
@@ -28,7 +26,8 @@ bot.on("message", msg => {
             msg.reply("\t" + diceGame.roll(Number(args[1])));
             break;
         case "kanye":
-            msg.reply(kanye.getQuote());
+            kanye.getKanyeAsync()
+                .then(data => msg.reply('"' + data.quote + '" -Kanye'));
     }
 });
 

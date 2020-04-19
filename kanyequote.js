@@ -1,11 +1,10 @@
 const fetch = require('node-fetch');
 const url = "https://api.kanye.rest/";
 
-let q = null;
-exports.getQuote = function () {
-    fetch(url).then(res => res.json()).then(data => {
-        q = data.quote;
-    });
+async function getKanyeAsync() {
+    let response = await fetch(url);
+    let data = await response.json()
+    return data;
+}
 
-    return '"' + q + '" \t-Kanye';
-};
+module.exports.getKanyeAsync = getKanyeAsync;
