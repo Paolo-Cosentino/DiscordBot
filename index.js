@@ -27,7 +27,11 @@ bot.on("message", msg => {
             break;
         case "kanye":
             kanye.getKanyeAsync()
-                .then(data => msg.reply('"' + data.quote + '" -Kanye'));
+                .then(data => msg.channel.send('"' + data.quote + '" -Kanye'));
+            break;
+        default:
+            msg.channel.send("Command not found.")
+            break;
     }
 });
 
