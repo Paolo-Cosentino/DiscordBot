@@ -22,9 +22,6 @@ bot.on("message", msg => {
                 msg.channel.bulkDelete(Number(args[1]));
             }
             break;
-        case "roll":
-            msg.reply("\t" + diceGame.roll(Number(args[1])));
-            break;
         case "kanye":
             kanye.getKanyeAsync()
                 .then(data => msg.channel.send('"' + data.quote + '" -Kanye'));
